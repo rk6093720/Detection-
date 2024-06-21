@@ -1,0 +1,8 @@
+/* styles.css */
+.visible {
+    display: block;
+}
+
+.sidebar {
+    display: none;
+}

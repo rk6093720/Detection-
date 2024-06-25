@@ -4,6 +4,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import Camera from './Camera';
 import Setting from '../Component/Setting';
 import Dashboard from "./Dashboard";
+import Vehicles from './Vehicles';
 const MainRoutes = () => {
   return (
     <div>
@@ -22,6 +23,7 @@ const MainRoutes = () => {
           <Route exact path="/camera" element={<Camera/>} />
           <Route path='/setting' element={<Setting/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/vehicles" element={<Vehicles/>}/>
           <Route path="/" element={<Navigate to="Layout" replace />} />
         </Routes>
       </Suspense>

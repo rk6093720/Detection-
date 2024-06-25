@@ -3,7 +3,7 @@ import { Flex } from '@chakra-ui/react'
 
 const AppFooter = () => {
   return (
-    <Flex justifyContent={"space-between"}>
+    <Flex marginTop={4} justifyContent={"space-evenly"}>
       <div>
         {/* <a href="https://coreui.io" target="_blank" rel="noopener noreferrer">
           CoreUI
@@ -13,7 +13,7 @@ const AppFooter = () => {
       <div className="ms-auto">
         <span className="me-1">Powered by</span>
         <a href="https://coreui.io/react" target="_blank" rel="noopener noreferrer">
-          Security &amp; Application
+          Security &amp;
         </a>
       </div>
     </Flex>

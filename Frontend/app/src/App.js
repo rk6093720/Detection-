@@ -5,7 +5,7 @@ import MainRoutes from "./Page/MainRoutes";
 import { Spinner } from "@chakra-ui/react";
 import {useSelector} from "react-redux";
 function App() {
-  const Auth = true ;
+  const Auth = true;
   const Login = React.lazy(() => import("./Authentication/Login"));
   const LandingPage = React.lazy(()=>import("./Page/Layout.js"));
   const Signup = React.lazy(()=> import("./Authentication/Register"));

@@ -14,6 +14,7 @@ import {toggleSidebar} from "../Redux/Auth/action"
 const AppSidebar = () => {
   const Accordionlist = [
     { title: "Dashboard", Link: "/dashboard" },
+    {title:"Vehicles",Link:"/vehicles"},
     { title: "Camera", Link: "/camera" },
     { title: "Setting", Link: "/setting" },
   ];

@@ -14,13 +14,13 @@ import {
 } from "@chakra-ui/react";
 import { Line, Bar } from "react-chartjs-2";
 import {
-  FaArrowDown,
-  FaArrowUp,
+  // FaArrowDown,
+  // FaArrowUp,
   FaEllipsisV,
-  FaUser,
-  FaDollarSign,
-  FaPercentage,
-  FaChartLine,
+  // FaUser,
+  // FaDollarSign,
+  // FaPercentage,
+  // FaChartLine,
 } from "react-icons/fa";
 import {
   Chart as ChartJS,
@@ -118,14 +118,15 @@ const WidgetsDropdown = ({ className }) => {
         <>
           26K{" "}
           <Text as="span" fontSize="sm" fontWeight="normal">
-            (-12.4% <FaArrowDown />)
+            (No of People in the Event)
+             {/* <FaArrowDown /> */}
           </Text>
         </>
       ),
-      title: "Users",
-      icon: FaUser,
-      chartData: [65, 59, 84, 84, 51, 55, 40],
-      ref: widgetChartRef1,
+      // title: "Users",
+      // icon: FaUser,
+      // chartData: [65, 59, 84, 84, 51, 55, 40],
+      // ref: widgetChartRef1,
     },
     {
       color: "cyan.500",
@@ -133,14 +134,15 @@ const WidgetsDropdown = ({ className }) => {
         <>
           $6.200{" "}
           <Text as="span" fontSize="sm" fontWeight="normal">
-            (40.9% <FaArrowUp />)
+            (Parking Spots)
+            {/* <FaArrowUp /> */}
           </Text>
         </>
       ),
-      title: "Income",
-      icon: FaDollarSign,
-      chartData: [1, 18, 9, 17, 34, 22, 11],
-      ref: widgetChartRef2,
+      // title: "Income",
+      // icon: FaDollarSign,
+      // chartData: [1, 18, 9, 17, 34, 22, 11],
+      // ref: widgetChartRef2,
     },
     {
       color: "yellow.500",
@@ -148,31 +150,32 @@ const WidgetsDropdown = ({ className }) => {
         <>
           2.49%{" "}
           <Text as="span" fontSize="sm" fontWeight="normal">
-            (84.7% <FaArrowUp />)
+            (Guard)online 
+            {/* <FaArrowUp /> */}
           </Text>
         </>
       ),
-      title: "Conversion Rate",
-      icon: FaPercentage,
-      chartData: [78, 81, 80, 45, 34, 12, 40],
+      // title: "Conversion Rate",
+      // icon: FaPercentage,
+      // chartData: [78, 81, 80, 45, 34, 12, 40],
     },
-    {
-      color: "red.500",
-      value: (
-        <>
-          44K{" "}
-          <Text as="span" fontSize="sm" fontWeight="normal">
-            (-23.6% <FaArrowDown />)
-          </Text>
-        </>
-      ),
-      title: "Sessions",
-      icon: FaChartLine,
-      chartData: [
-        78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84, 67, 82,
-      ],
-      isBar: true,
-    },
+    // {
+    //   color: "red.500",
+    //   value: (
+    //     <>
+    //       44K{" "}
+    //       <Text as="span" fontSize="sm" fontWeight="normal">
+    //         (-23.6% <FaArrowDown />)
+    //       </Text>
+    //     </>
+    //   ),
+    //   title: "Sessions",
+    //   icon: FaChartLine,
+    //   chartData: [
+    //     78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84, 67, 82,
+    //   ],
+    //   isBar: true,
+    // },
   ];
 
   return (
@@ -185,10 +188,13 @@ const WidgetsDropdown = ({ className }) => {
         <GridItem
           key={index}
           bg={widget.color}
-          p={4}
+          p={5}
           borderRadius="md"
           color="white"
           position="relative"
+          height={"150px"}
+          alignContent={"center"}
+          border={"1px solid blue"}
         >
           <Flex justify="space-between" align="center">
             <Box>

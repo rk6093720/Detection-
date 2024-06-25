@@ -154,7 +154,7 @@ const Login = () => {
             </Flex>
             <br />
             <Button
-              color={"black"}
+              color={"white"}
               type="submit"
               border={"1px solid black"}
               width={"100%"}
@@ -187,7 +187,7 @@ const Login = () => {
           If you don't have account on Security Application then
           <br />
           <Link to="/register">
-            <Button color="black" active>
+            <Button color="white" background={"teal"} active>
               Register Now!
             </Button>
           </Link>

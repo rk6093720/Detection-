@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-
 import { CChartLine } from "@coreui/react-chartjs";
 import { getStyle } from "@coreui/utils";
 
@@ -40,14 +39,15 @@ const MainChart = () => {
         ref={chartRef}
         style={{ height: "300px", marginTop: "40px" }}
         data={{
+          // change from month to time
           labels: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
+            "8:00 Am",
+            "9:00 Am",
+            "10:00 Am",
+            "11:00 Am",
+            "12:00 Am",
+            "01:00 Am",
+            "02:00 Am",
           ],
           datasets: [
             {
@@ -101,6 +101,7 @@ const MainChart = () => {
               display: false,
             },
           },
+          // here we are change from scales to person are visting event
           scales: {
             x: {
               grid: {
@@ -119,11 +120,11 @@ const MainChart = () => {
               grid: {
                 color: getStyle("--cui-border-color-translucent"),
               },
-              max: 250,
+              max: 10000,
               ticks: {
                 color: getStyle("--cui-body-color"),
-                maxTicksLimit: 5,
-                stepSize: Math.ceil(250 / 5),
+                maxTicksLimit: 6,
+                stepSize: Math.ceil(200/ 5),
               },
             },
           },

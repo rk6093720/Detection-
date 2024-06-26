@@ -9,36 +9,27 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {toggleSidebar} from "../Redux/Auth/action"
+import {useDispatch} from "react-redux";
 const AppSidebar = () => {
+  const dispatch = useDispatch()
   const Accordionlist = [
     { title: "Dashboard", Link: "/dashboard" },
     {title:"Vehicles",Link:"/vehicles"},
     { title: "Camera", Link: "/camera" },
-    { title: "Setting", Link: "/setting" },
+    { title: "Setting", Link: "/settings" },
   ];
-
-  const dispatch = useDispatch();
-  const sidebarShow = useSelector((state) => state.sidebarShow);
-  const unfoldable = useSelector((state) => state.sidebarUnfoldable);
-
-  const handleSidebarToggle = () => {
-    dispatch(toggleSidebar(!sidebarShow)); // Dispatch toggleSidebar action
-  };
-
+ 
   return (
-    <Box
+    <div
       style={{
-        display: !sidebarShow ? "block" : "none",
-        width: "255px",
+        width:"100%",
         height: "100vh",
-        border: "1px solid red",
         transition: "width 0.3s ease",
+        display:"block"
       }}
     >
       <Box style={{ width: "100%", height: "100%" }}>
-        <Box style={{ border: "1px solid red", width: "100%", height: "60px" }}>
+        <Box style={{  width: "100%", height: "60px" }}>
           Company Image
         </Box>
         <Box>
@@ -61,7 +52,7 @@ const AppSidebar = () => {
           </Accordion>
         </Box>
       </Box>
-    </Box>
+    </div>
   );
 };
 

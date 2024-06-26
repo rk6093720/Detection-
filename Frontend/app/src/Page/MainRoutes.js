@@ -5,6 +5,7 @@ import Camera from './Camera';
 import Setting from '../Component/Setting';
 import Dashboard from "./Dashboard";
 import Vehicles from './Vehicles';
+import Profile from "./Profile";
 const MainRoutes = () => {
   return (
     <div>
@@ -21,7 +22,8 @@ const MainRoutes = () => {
       >
         <Routes>
           <Route exact path="/camera" element={<Camera/>} />
-          <Route path='/setting' element={<Setting/>}/>
+          <Route exact path="/profile" element={<Profile/>}/>
+          <Route path='/settings' element={<Setting/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/vehicles" element={<Vehicles/>}/>
           <Route path="/" element={<Navigate to="Layout" replace />} />

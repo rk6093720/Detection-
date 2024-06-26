@@ -14,7 +14,7 @@ const changeState = (state = initialState, action) => {
     case TOGGLE_UNFOLDABLE:
       return {
         ...state,
-        sidebarUnfoldable: !state.TOGGLE_UNFOLDABLE,
+        sidebarUnfoldable: !state.sidebarUnfoldable,
       };
     default:
       return state;

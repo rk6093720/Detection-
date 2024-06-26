@@ -31,6 +31,7 @@ ChartJS.register(
 );
 
 const WidgetsBrand = ({ className, withCharts }) => {
+  console.log(className)
   const chartOptions = {
     elements: {
       line: {
@@ -99,69 +100,71 @@ const WidgetsBrand = ({ className, withCharts }) => {
   ];
 
   return (
-    <Grid
-      className={className}
-      templateColumns="repeat(auto-fill, minmax(240px, 1fr))"
-      gap={4}
-    >
-      {widgetData.map((widget, index) => (
-        <GridItem
-          key={index}
-          position="relative"
-          bg={widget.bg}
-          p={4}
-          borderRadius="md"
-          color="white"
-        >
-          <Flex direction="column" align="center" justify="center" h="100%">
-            <Icon as={widget.icon} boxSize={10} mb={4} />
-            <Text fontSize="2xl" fontWeight="bold">
-              {widget.value}
-            </Text>
-            <Text>{widget.title}</Text>
-            <Text fontSize="sm" mt={2}>
-              {widget.subValue}
-            </Text>
-            <Text fontSize="sm">{widget.subTitle}</Text>
-          </Flex>
-          {withCharts && (
-            <Box
-              position="absolute"
-              bottom={0}
-              left={0}
-              right={0}
-              height="50px"
-            >
-              <Line
-                data={{
-                  labels: [
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                  ],
-                  datasets: [
-                    {
-                      backgroundColor: "rgba(255,255,255,.1)",
-                      borderColor: "rgba(255,255,255,.55)",
-                      pointHoverBackgroundColor: "#fff",
-                      borderWidth: 2,
-                      data: widget.chartData,
-                      fill: true,
-                    },
-                  ],
-                }}
-                options={chartOptions}
-                height={50}
-              />
-            </Box>
-          )}
-        </GridItem>
-      ))}
-    </Grid>
+    <div>
+      <Grid     
+        className={className}
+        templateColumns="repeat(auto-fill, minmax(240px, 1fr))"
+        gap={4}
+      >
+        {widgetData.map((widget, index) => (
+          <GridItem
+            key={index}
+            position="relative"
+            bg={widget.bg}
+            p={4}
+            borderRadius="md"
+            color="white"
+          >
+            <Flex direction="column" align="center" justify="center" h="100%">
+              <Icon as={widget.icon} boxSize={10} mb={4} />
+              <Text fontSize="2xl" fontWeight="bold">
+                {widget.value}
+              </Text>
+              <Text>{widget.title}</Text>
+              <Text fontSize="sm" mt={2}>
+                {widget.subValue}
+              </Text>
+              <Text fontSize="sm">{widget.subTitle}</Text>
+            </Flex>
+            {withCharts && (
+              <Box
+                position="absolute"
+                bottom={0}
+                left={0}
+                right={0}
+                height="50px"
+              >
+                <Line
+                  data={{
+                    labels: [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                    ],
+                    datasets: [
+                      {
+                        backgroundColor: "rgba(255,255,255,.1)",
+                        borderColor: "rgba(255,255,255,.55)",
+                        pointHoverBackgroundColor: "#fff",
+                        borderWidth: 2,
+                        data: widget.chartData,
+                        fill: true,
+                      },
+                    ],
+                  }}
+                  options={chartOptions}
+                  height={50}
+                />
+              </Box>
+            )}
+          </GridItem>
+        ))}
+      </Grid>
+    </div>
   );
 };
 

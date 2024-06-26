@@ -4,7 +4,6 @@ import { getStyle } from "@coreui/utils";
 
 const MainChart = () => {
   const chartRef = useRef(null);
-
   useEffect(() => {
     document.documentElement.addEventListener("ColorSchemeChange", () => {
       if (chartRef.current) {
@@ -34,7 +33,7 @@ const MainChart = () => {
   const random = () => Math.round(Math.random() * 100);
 
   return (
-    <>
+    <div>
       <CChartLine
         ref={chartRef}
         style={{ height: "300px", marginTop: "40px" }}
@@ -141,7 +140,7 @@ const MainChart = () => {
           },
         }}
       />
-    </>
+    </div>
   );
 };
 

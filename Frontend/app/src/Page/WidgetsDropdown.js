@@ -46,7 +46,7 @@ ChartJS.register(
 const WidgetsDropdown = ({ className }) => {
   const widgetChartRef1 = useRef(null);
   const widgetChartRef2 = useRef(null);
-
+console.log(className);
   useEffect(() => {
     const updateChartColors = () => {
       if (widgetChartRef1.current) {
@@ -179,138 +179,146 @@ const WidgetsDropdown = ({ className }) => {
   ];
 
   return (
-    <Grid
-      templateColumns="repeat(auto-fill, minmax(240px, 1fr))"
-      gap={4}
-      className={className}
-    >
-      {widgetData.map((widget, index) => (
-        <GridItem
-          key={index}
-          bg={widget.color}
-          p={5}
-          borderRadius="md"
-          color="white"
-          position="relative"
-          height={"150px"}
-          alignContent={"center"}
-          border={"1px solid blue"}
-        >
-          <Flex justify="space-between" align="center">
-            <Box>
-              <Text fontSize="2xl" fontWeight="bold">
-                {widget.value}
-              </Text>
-              <Text>{widget.title}</Text>
+    <div>
+      <Grid
+        templateColumns="repeat(auto-fill, minmax(240px, 1fr))"
+        gap={4}
+        className={className}
+      >
+        {widgetData.map((widget, index) => (
+          <GridItem
+            key={index}
+            bg={widget.color}
+            p={5}
+            borderRadius="md"
+            color="white"
+            position="relative"
+            height={"150px"}
+            alignContent={"center"}
+            border={"1px solid blue"}
+          >
+            <Flex justify="space-between" align="center">
+              <Box>
+                <Text fontSize="2xl" fontWeight="bold">
+                  {widget.value}
+                </Text>
+                <Text>{widget.title}</Text>
+              </Box>
+              <Menu>
+                <MenuButton
+                  as={IconButton}
+                  icon={<FaEllipsisV />}
+                  variant="ghost"
+                  colorScheme="whiteAlpha"
+                  aria-label="Options"
+                />
+                <MenuList>
+                  <MenuItem>Action</MenuItem>
+                  <MenuItem>Another action</MenuItem>
+                  <MenuItem>Something else here...</MenuItem>
+                  <MenuItem isDisabled>Disabled action</MenuItem>
+                </MenuList>
+              </Menu>
+            </Flex>
+            <Box
+              position="absolute"
+              bottom={0}
+              left={0}
+              right={0}
+              height="70px"
+            >
+              {widget.isBar ? (
+                <Bar
+                  ref={widget.ref}
+                  data={{
+                    labels: [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December",
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                    ],
+                    datasets: [
+                      {
+                        label: "Dataset",
+                        backgroundColor: "rgba(255,255,255,.2)",
+                        borderColor: "rgba(255,255,255,.55)",
+                        data: widget.chartData,
+                        barPercentage: 0.6,
+                      },
+                    ],
+                  }}
+                  options={{
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: {
+                        display: false,
+                      },
+                    },
+                    scales: {
+                      x: {
+                        grid: {
+                          display: false,
+                          drawTicks: false,
+                        },
+                        ticks: {
+                          display: false,
+                        },
+                      },
+                      y: {
+                        grid: {
+                          display: false,
+                          drawTicks: false,
+                        },
+                        ticks: {
+                          display: false,
+                        },
+                      },
+                    },
+                  }}
+                />
+              ) : (
+                <Line
+                  ref={widget.ref}
+                  data={{
+                    labels: [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                    ],
+                    datasets: [
+                      {
+                        label: "Dataset",
+                        backgroundColor: "transparent",
+                        borderColor: "rgba(255,255,255,.55)",
+                        pointBackgroundColor: widget.color,
+                        data: widget.chartData,
+                      },
+                    ],
+                  }}
+                  options={chartOptions}
+                />
+              )}
             </Box>
-            <Menu>
-              <MenuButton
-                as={IconButton}
-                icon={<FaEllipsisV />}
-                variant="ghost"
-                colorScheme="whiteAlpha"
-                aria-label="Options"
-              />
-              <MenuList>
-                <MenuItem>Action</MenuItem>
-                <MenuItem>Another action</MenuItem>
-                <MenuItem>Something else here...</MenuItem>
-                <MenuItem isDisabled>Disabled action</MenuItem>
-              </MenuList>
-            </Menu>
-          </Flex>
-          <Box position="absolute" bottom={0} left={0} right={0} height="70px">
-            {widget.isBar ? (
-              <Bar
-                ref={widget.ref}
-                data={{
-                  labels: [
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December",
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                  ],
-                  datasets: [
-                    {
-                      label: "Dataset",
-                      backgroundColor: "rgba(255,255,255,.2)",
-                      borderColor: "rgba(255,255,255,.55)",
-                      data: widget.chartData,
-                      barPercentage: 0.6,
-                    },
-                  ],
-                }}
-                options={{
-                  maintainAspectRatio: false,
-                  plugins: {
-                    legend: {
-                      display: false,
-                    },
-                  },
-                  scales: {
-                    x: {
-                      grid: {
-                        display: false,
-                        drawTicks: false,
-                      },
-                      ticks: {
-                        display: false,
-                      },
-                    },
-                    y: {
-                      grid: {
-                        display: false,
-                        drawTicks: false,
-                      },
-                      ticks: {
-                        display: false,
-                      },
-                    },
-                  },
-                }}
-              />
-            ) : (
-              <Line
-                ref={widget.ref}
-                data={{
-                  labels: [
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                  ],
-                  datasets: [
-                    {
-                      label: "Dataset",
-                      backgroundColor: "transparent",
-                      borderColor: "rgba(255,255,255,.55)",
-                      pointBackgroundColor: widget.color,
-                      data: widget.chartData,
-                    },
-                  ],
-                }}
-                options={chartOptions}
-              />
-            )}
-          </Box>
-        </GridItem>
-      ))}
-    </Grid>
+          </GridItem>
+        ))}
+      </Grid>
+    </div>
   );
 };
 

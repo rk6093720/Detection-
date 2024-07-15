@@ -73,8 +73,8 @@ const Login = () => {
    }, []);
   return (
     <Box
-      width={{ base: "300px", md: "760px", lg: "1280px" }}
-      height={{ base: "472px", md: "1000px", lg: "580px" }}
+      width={{ base: "325px", md: "780px", lg: "1024px" }}
+      height={{ base: "580px", md: "1080px", lg: "580px" }}
       margin={"auto"}
       padding={"4px"}
       marginTop={"2px"}
@@ -87,19 +87,15 @@ const Login = () => {
       overflow={"hidden"}
     >
       <Box
-        width={{ base: "300px", md: "100%", lg: "30%" }}
-        // border={{
-        //   base: "1px solid red",
-        //   md: "1px solid blue",
-        //   lg: "1px solid green",
-        // }}
+        width={{ base: "100%", md: "780px", lg: "30%" }}
         height={{ base: "100%", md: "100%", lg: "100%" }}
-        margin={"auto"}
+        margin={{ base: "auto", lg: "auto" }}
+        boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}
       >
         <Heading
           color={"white"}
-          padding={4}
-          fontSize={{ base: "15px", md: "24px", lg: "20px" }}
+          padding={{ base: 4, md: 6, lg: 4 }}
+          fontSize={{ base: "15px", md: "35px", lg: "20px" }}
           textAlign={"center"}
         >
           Welcome to Security Application For Login
@@ -109,29 +105,47 @@ const Login = () => {
             base: "100%",
             md: "100%",
             lg: "100%",
-            color: "white",
-            backgroundColor: "white",
           }}
+          heigth={{ md: "500px" }}
+          padding={{ base: 4, md: 3, lg: 3 }}
         >
           <form onSubmit={handleForm} noValidate validate={flag}>
             <FormControl isRequired>
-              <FormLabel color={"white"}>Email</FormLabel>
+              <FormLabel fontSize={{ md: "30px", lg: "18px" }} color={"white"}>
+                Email
+              </FormLabel>
               <Input
                 type="email"
                 placeholder="email"
+                fontSize={{ md: "30px", lg: "18px" }}
                 autoComplete="email"
                 value={email}
+                width={{
+                  base: "100%",
+                  md: "100%",
+                  lg: "100%",
+                }}
+                height={{ base: "40px", md: "80px", lg: "35px" }}
                 onChange={(e) => setEmail(e.target.value)}
                 color={"white"}
               />
             </FormControl>
             <br />
             <FormControl isRequired>
-              <FormLabel color={"white"}>Password</FormLabel>
+              <FormLabel fontSize={{ md: "30px", lg: "18px" }} color={"white"}>
+                Password
+              </FormLabel>
               <Input
                 value={password}
+                width={{
+                  base: "100%",
+                  md: "100%",
+                  lg: "100%",
+                }}
+                height={{ base: "35px", md: "80px", lg: "35px" }}
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
+                fontSize={{ md: "28px" }}
                 placeholder="Password"
                 autoComplete="current-password"
               />
@@ -143,12 +157,22 @@ const Login = () => {
                 onChange={(e) => setIsCheck(e.target.checked)}
                 border={"blue"}
                 color={"white"}
+                fontWeight={{ md: "bold" }}
               >
-                Remember Me
+                <Text fontSize={{ md: "30px", lg: "18px" }} color={"white"}>
+                  {" "}
+                  Remember Me{" "}
+                </Text>
               </Checkbox>
               <Box>
                 <Link to={"/forgetpassword"}>
-                  <Text color={"white"}>ForgetPassword</Text>
+                  <Text
+                    fontSize={{ md: "30px", lg: "18px" }}
+                    fontWeight={{ md: "bold" }}
+                    color={"white"}
+                  >
+                    ForgetPassword
+                  </Text>
                 </Link>
               </Box>
             </Flex>
@@ -157,7 +181,9 @@ const Login = () => {
               color={"white"}
               type="submit"
               border={"1px solid black"}
-              width={"100%"}
+              width={{ base: "100%", md: "100%", lg: "100%" }}
+              height={{ base: "50px", md: "80px", lg: "45px" }}
+              fontSize={{ md: "30px" }}
             >
               Login
             </Button>
@@ -169,7 +195,9 @@ const Login = () => {
             backgroundColor={"blue"}
             border={"1px solid blue"}
             width={"50%"}
+            height={{ base: "50px", md: "80px", lg: "45px" }}
             color={"white"}
+            fontSize={{ md: "28px" }}
           >
             Facebook
           </Button>
@@ -177,17 +205,30 @@ const Login = () => {
             backgroundColor={"Red"}
             border={"1px solid Red"}
             width={"50%"}
+            height={{ base: "50px", md: "80px", lg: "45px" }}
             color={"white"}
+            fontSize={{ md: "28px" }}
           >
             Google
           </Button>
         </Box>
         <br />
-        <Box color={"white"}>
+        <Box
+          fontSize={{ base: "12px", md: "40px", lg: "15px" }}
+          fontWeight={{ md: "bold" }}
+          color={"white"}
+        >
           If you don't have account on Security Application then
           <br />
           <Link to="/register">
-            <Button color="white" background={"teal"} active>
+            <Button
+              width={"50%"}
+              fontSize={{base:"24px", md: "28px" }}
+              color="white"
+              background={"teal"}
+              height={{ base: "50px", md: "80px", lg: "45px" }}
+              active
+            >
               Register Now!
             </Button>
           </Link>

@@ -3,14 +3,13 @@ import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import MainRoutes from "./Page/MainRoutes";
 import { Spinner } from "@chakra-ui/react";
-import {useSelector} from "react-redux";
 function App() {
   const Auth = true;
   const Login = React.lazy(() => import("./Authentication/Login"));
   const LandingPage = React.lazy(()=>import("./Page/Layout.js"));
   const Signup = React.lazy(()=> import("./Authentication/Register"));
-  const Forget_password = React.lazy(()=>import("./Authentication/Forgetpassword.js"));
-  const Reset_password = React.lazy(()=>import("./Authentication/ResetPassword.js"));
+  const Forgetpassword = React.lazy(()=>import("./Authentication/Forgetpassword.js"));
+  const Resetpassword = React.lazy(()=>import("./Authentication/ResetPassword.js"));
   return (
     <div className="App">
       <HashRouter>
@@ -35,8 +34,8 @@ function App() {
             )}
             <Route exact path="/register" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
-            <Route exact path="/forgetpassword" element={<Forget_password/>} />
-            <Route exact path="/resetpassword" element={<Reset_password/>}/>
+            <Route exact path="/forgetpassword" element={<Forgetpassword/>} />
+            <Route exact path="/resetpassword" element={<Resetpassword/>}/>
             <Route path="*" element={<LandingPage />} />
             {Auth && <Route path="/*" element={<MainRoutes />} />}
           </Routes>

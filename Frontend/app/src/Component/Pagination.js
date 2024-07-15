@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { HStack, Button, Box } from "@chakra-ui/react";
+import { HStack, Button, Box, Select } from "@chakra-ui/react";
 
-const Pagination = ({ current, pageCount, setCurrent }) => {
+const Pagination = ({ current, pageCount,change, setCurrent , handleChange}) => {
   const [pagination, setPagination] = useState({
     prev: false,
     next: false,
     items: [],
   });
-
+  const perpage=[10,20,30,40,50];
   useEffect(() => {
     const generatePagination = () => {
       let items = [];
@@ -24,7 +24,6 @@ const Pagination = ({ current, pageCount, setCurrent }) => {
 
     generatePagination();
   }, [current, pageCount]);
-
   return (
     <Box display="flex" justifyContent="flex-end">
       <HStack my="3" spacing="1">
@@ -63,6 +62,15 @@ const Pagination = ({ current, pageCount, setCurrent }) => {
             Next
           </Button>
         )}
+        {/* <Select value={change} onChange={handleChange}>
+          {
+            perpage.map((item, index)=>(
+              <option key={index} value={item}>
+                {item}page
+              </option>
+            ))
+          }
+        </Select> */}
       </HStack>
     </Box>
   );

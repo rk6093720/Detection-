@@ -28,13 +28,13 @@ const Header = ({ handleSize }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue("gray.100", "gray.900");
-  const [isLargerThanLG] = useMediaQuery("(min-width: 62em)"); // 62em is the breakpoint for 'lg'
-  const handleClickScroll = (value) => {
-    const element = document.getElementById(value);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const [isLargerThanLG] = useMediaQuery("(min-width: 60em)"); // 62em is the breakpoint for 'lg'
+  // const handleClickScroll = (value) => {
+  //   const element = document.getElementById(value);
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   const onClick = () => {
     if (isLargerThanLG) {
@@ -47,8 +47,8 @@ const Header = ({ handleSize }) => {
   return (
     <React.Fragment>
       <Flex
+        width={{ base: "425px", md: "780px", lg: "100%" }}
         style={{
-          width: "100%",
           height: "60px",
           alignItems: "center",
           marginTop: "0px",
@@ -60,6 +60,7 @@ const Header = ({ handleSize }) => {
         <Box fontSize={{ base: "12px", md: "18px", lg: "24px" }}>
           <Flex>
             <Button
+              display={{ base: "block", md: "block", lg: "block" }}
               className="openbtn"
               onClick={onClick}
               style={{ marginInlineStart: "-14px" }}
@@ -159,6 +160,26 @@ const Header = ({ handleSize }) => {
                 }}
               >
                 <Link to={"/settings"}>Settings</Link>
+              </Flex>
+              <Flex
+                w="100%"
+                class="nav-link settings"
+                colorScheme="gray"
+                // onClick={() => handleClickScroll("/settings")}
+                variant="ghost"
+                align="center"
+                p="3"
+                mx="4"
+                mt="4"
+                borderRadius="lg"
+                role="group"
+                cursor="pointer"
+                _hover={{
+                  bg: "cyan.400",
+                  color: "white",
+                }}
+              >
+                <Link to={"/profile"}>Profile</Link>
               </Flex>
             </Flex>
           </DrawerBody>

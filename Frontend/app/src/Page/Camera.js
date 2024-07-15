@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import { Box, Flex } from '@chakra-ui/react';
 const Camera = () => {
     const [data,setData]=useState("");
     useEffect(()=>{
@@ -18,8 +19,12 @@ const Camera = () => {
     console.log(data)
   return (
     <div>
+      <Flex>
+        <Box></Box>
+        <Box>AddCamera</Box>
+      </Flex>
       <h1>Camera List</h1>
-      { data}
+      {data}
     </div>
   );
 }

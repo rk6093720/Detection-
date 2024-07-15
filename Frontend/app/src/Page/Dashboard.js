@@ -106,15 +106,16 @@ const Dashboard = () => {
     },
   ];
   const boxwidth = useBreakpointValue({
-    base: "100%",
+    base: "320px",
     md: "100%",
     lg: !sidebarShow ? "calc(100% - 0.5%)" : "100%",
   });
   return (
-    <div id="dashboard">
+    <React.Fragment>
       <Box
         overflow={"scroll"}
         width={boxwidth}
+        position={"absolute"}
         height={"495px"}
         border={"1px solid black"}
       >
@@ -124,7 +125,7 @@ const Dashboard = () => {
             <Flex justify="space-between" align="center">
               <Box>
                 <Heading size="md" mb={0}>
-                  Traffic
+                  vehicles
                 </Heading>
                 <Text fontSize="sm" color="gray.500">
                   January - July 2023
@@ -219,7 +220,7 @@ const Dashboard = () => {
           </Card>
         </SimpleGrid>
       </Box>
-    </div>
+    </React.Fragment>
   );
 };
 

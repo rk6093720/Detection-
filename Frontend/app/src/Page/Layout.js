@@ -2,10 +2,9 @@ import React from "react";
 import Header from "../Component/Header";
 import MainRoutes from "./MainRoutes";
 import { toggleSidebar, toggleUnfoldable } from "../Redux/Auth/action";
-import Sidebar from "../Component/AppSidebar";
+import AppSidebar from "../Component/AppSidebar";
 import { Box, Flex } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-
 const Layout = () => {
   const dispatch = useDispatch();
   const sidebarShow = useSelector((state) => state.store.sidebarShow);
@@ -28,18 +27,17 @@ const Layout = () => {
     }
 
   };
-
-  return (
+  return ( 
     <React.Fragment>
-      <Flex justifyContent="space-between">
+      <Flex width={{base:"100%",md:"100%",lg:"100%"}} justifyContent="space-between">
         <Box
-          width={sidebarShow ? (unfoldable ? "255px" : "255px") : "0px"}
+          width={sidebarShow ? (unfoldable ? "250px" : "250px") : "0px"}
           overflowX="hidden"
           transition="width 0.3s ease"
         >
-          <Sidebar />
+          <AppSidebar />
         </Box>
-        <Box flex="1"  position="relative">
+        <Box flex="1"   position="relative">
           <Header handleSize={handleSize} />
           <MainRoutes />
         </Box>

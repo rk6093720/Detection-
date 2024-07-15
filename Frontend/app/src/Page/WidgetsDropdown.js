@@ -11,6 +11,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Button
 } from "@chakra-ui/react";
 import { Line, Bar } from "react-chartjs-2";
 import {
@@ -46,6 +47,9 @@ ChartJS.register(
 const WidgetsDropdown = ({ className }) => {
   const widgetChartRef1 = useRef(null);
   const widgetChartRef2 = useRef(null);
+  const  handleModal=()=>{
+    alert("modal")
+  }
 console.log(className);
   useEffect(() => {
     const updateChartColors = () => {
@@ -115,13 +119,13 @@ console.log(className);
     {
       color: "blue.500",
       value: (
-        <>
+        <Button onClick={handleModal}>
           26K{" "}
           <Text as="span" fontSize="sm" fontWeight="normal">
             (No of People in the Event)
              {/* <FaArrowDown /> */}
           </Text>
-        </>
+        </Button>
       ),
       // title: "Users",
       // icon: FaUser,
